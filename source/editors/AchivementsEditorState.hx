@@ -29,45 +29,27 @@ import openfl.net.FileReference;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import haxe.Json;
-import Character;
 import flixel.system.debug.interaction.tools.Pointer.GraphicCursorCross;
 import lime.system.Clipboard;
 import flixel.animation.FlxAnimation;
-
 #if MODS_ALLOWED
 import sys.FileSystem;
 #end
 
 using StringTools;
 
-/**
-	*DEBUG MODE
- */
 class AchivementsEditorState extends MusicBeatState
 {
    var StartsUnlocked:Bool = false;
    var CanUnlock:Bool = false;
+   var IsThisAnError:Bool = false;
 
-   var UI_box:FlxUITabMenu;
-   var UI_awardsbox:FlxUITabMenu;
-
-   bgLayer = new FlxTypedGroup<FlxSprite>();
-   add(bgLayer);
-   achLayer = new FlxTypedGroup<Character>();
-   add(achLayer);
-
-		var tabs = [
-			//{name: 'Offsets', label: 'Offsets'},
-			{name: 'Settings', label: 'Editor'},
-		];
-
-		UI_box = new FlxUITabMenu(null, tabs, true);
-
-		UI_box.resize(250, 120);
-		UI_box.x = FlxG.width - 275;
-		UI_box.y = 25;
-		UI_box.scrollFactor.set();
-		add(UI_box);
-
-		FlxG.mouse.visible = true;
+   override function create() {
+		var tipText:FlxText = new FlxText(0, 540, FlxG.width,
+			"Theres no tips yet", 16);
+		tipText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER);
+		tipText.scrollFactor.set();
+		add(tipText);
+                FlxG.mouse.visible = false;
+   }
 }
