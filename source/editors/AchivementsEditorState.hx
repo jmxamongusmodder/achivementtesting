@@ -47,10 +47,15 @@ class AchivementsEditorState extends MusicBeatState
    var IsThisAnError:Bool = false;
 
    override function create() {
+	        var visibleWhenNoMods:Array<FlxBasic> = [];
+	        var visibleWhenHasMods:Array<FlxBasic> = [];
+
 		var tipText:FlxText = new FlxText(0, 540, FlxG.width,
-			"Theres no tips yet", 16);
+			"Theres no tips yet!", 16);
 		tipText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER);
 		tipText.scrollFactor.set();
+//		tipText.borderSize = 8;
+		tipText.screenCenter();
 		add(tipText);
                 FlxG.mouse.visible = true;
    }
