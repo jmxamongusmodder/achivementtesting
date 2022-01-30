@@ -13,8 +13,6 @@ import flixel.input.keyboard.FlxKey;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.graphics.FlxGraphic;
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
 import flixel.addons.ui.FlxInputText;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.addons.ui.FlxUI;
@@ -33,6 +31,11 @@ import lime.system.Clipboard;
 import flixel.animation.FlxAnimation;
 import flixel.FlxBasic;
 import flixel.ui.FlxButton;
+import flixel.math.FlxMath;
+import flixel.text.FlxText;
+import flixel.util.FlxColor;
+import flixel.tweens.FlxTween;
+import flash.text.TextField;
 #if MODS_ALLOWED
 import sys.FileSystem;
 #end
@@ -46,18 +49,22 @@ class AchivementsEditorState extends MusicBeatState
    var UnlockByWeek:Bool = false;
    var UnlockBySong:Bool = false;
    var IsThisAnError:Bool = false;
+   var needaReset = true;
+/* public var alphabet:Alphabet;
+   public var description:Alphabet;
+   public var image:AttachedSprite;*/
+
+   var buttonsArray:Array<FlxButton> = [];
+
+// var buttonTest:FlxButton;
 
    override function create() {
-	        var visibleWhenNoMods:Array<FlxBasic> = [];
-	        var visibleWhenHasMods:Array<FlxBasic> = [];
-
 		var tipText:FlxText = new FlxText(0, 540, FlxG.width,
 			"Theres no tips yet!", 16);
 		tipText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER);
 		tipText.scrollFactor.set();
-//		tipText.borderSize = 8;
 		tipText.screenCenter();
 		add(tipText);
                 FlxG.mouse.visible = true;
-   }
+ }
 }
