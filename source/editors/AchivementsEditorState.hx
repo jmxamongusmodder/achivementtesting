@@ -56,11 +56,34 @@ class AchivementsEditorState extends MusicBeatState
 
    var buttonsArray:Array<FlxButton> = [];
 
-// var buttonTest:FlxButton;
+   var buttonToggle:FlxButton;
+
+   var startX:Int = 1120;
+
+		buttonToggle = new FlxButton(startX, 0, "Save", function()
+		{
+                   saveAward();
+		});
+		buttonToggle.setGraphicSize(50, 50);
+		buttonToggle.updateHitbox();
+		add(buttonToggle);
+
+	var _file:FileReference = null;
+	function saveAward() {
+		var data:String = Json.stringify("amongusaward");
+		if (data.length > 0)
+		{
+			_file = new FileReference();
+			_file.addEventListener(Event.COMPLETE, onSaveComplete);
+			_file.addEventListener(Event.CANCEL, onSaveCancel);
+			_file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
+			_file.save(data, "testweek" + ".json");
+		}
+	}
 
    override function create() {
 		var tipText:FlxText = new FlxText(0, 540, FlxG.width,
-			"Theres no tips yet!!", 16);
+			"Theres no tips yet!", 16);
 		tipText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER);
 		tipText.scrollFactor.set();
 		tipText.screenCenter();
