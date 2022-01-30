@@ -49,7 +49,7 @@ class AchivementsEditorState extends MusicBeatState
    var UnlockByWeek:Bool = false;
    var UnlockBySong:Bool = false;
    var IsThisAnError:Bool = false;
-   var needaReset = true;
+   var needaReset = false;
 /* public var alphabet:Alphabet;
    public var description:Alphabet;
    public var image:AttachedSprite;*/
@@ -60,7 +60,7 @@ class AchivementsEditorState extends MusicBeatState
 
    override function create() {
 		var tipText:FlxText = new FlxText(0, 540, FlxG.width,
-			"Theres no tips yet!", 16);
+			"Theres no tips yet!!", 16);
 		tipText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER);
 		tipText.scrollFactor.set();
 		tipText.screenCenter();
