@@ -66,13 +66,14 @@ class AchivementsEditorState extends MusicBeatState
 		if (data.length > 0)
 		{
 			_file = new FileReference();
-			_file.save(data, "testweek" + ".json");
+			_file.save(data, "testachivement" + ".json");
 		}
 	}
 
    override function create() {
 		var tipText:FlxText = new FlxText(0, 540, FlxG.width,
-			"Theres no tips yet!", 16);
+			"Left - Mute Music
+			\nSpace - Save Json", 16);
 		tipText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER);
 		tipText.scrollFactor.set();
 		tipText.screenCenter();
