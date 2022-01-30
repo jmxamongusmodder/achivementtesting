@@ -25,6 +25,7 @@ import flixel.ui.FlxSpriteButton;
 import openfl.net.FileReference;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
+import flash.net.FileFilter;
 import haxe.Json;
 import flixel.system.debug.interaction.tools.Pointer.GraphicCursorCross;
 import lime.system.Clipboard;
@@ -36,6 +37,7 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import flash.text.TextField;
+import flixel.addons.ui.FlxButtonPlus;
 #if MODS_ALLOWED
 import sys.FileSystem;
 #end
@@ -56,27 +58,14 @@ class AchivementsEditorState extends MusicBeatState
 
    var buttonsArray:Array<FlxButton> = [];
 
-   var buttonToggle:FlxButton;
-
-   var startX:Int = 1120;
-
-		buttonToggle = new FlxButton(startX, 0, "Save", function()
-		{
-                   saveAward();
-		});
-		buttonToggle.setGraphicSize(50, 50);
-		buttonToggle.updateHitbox();
-		add(buttonToggle);
+// var buttonToggle:FlxButton;
 
 	var _file:FileReference = null;
 	function saveAward() {
-		var data:String = Json.stringify("amongusaward");
+		var data:String = Json.stringify("awardtesting");
 		if (data.length > 0)
 		{
 			_file = new FileReference();
-			_file.addEventListener(Event.COMPLETE, onSaveComplete);
-			_file.addEventListener(Event.CANCEL, onSaveCancel);
-			_file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
 			_file.save(data, "testweek" + ".json");
 		}
 	}
@@ -89,5 +78,6 @@ class AchivementsEditorState extends MusicBeatState
 		tipText.screenCenter();
 		add(tipText);
                 FlxG.mouse.visible = true;
+                saveAward();
  }
 }
