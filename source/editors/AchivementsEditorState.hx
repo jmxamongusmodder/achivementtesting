@@ -42,6 +42,8 @@ class AchivementsEditorState extends MusicBeatState
 {
    var StartsUnlocked:Bool = false;
    var CanUnlock:Bool = false;
+   var UnlockByWeek:Bool = false;
+   var UnlockBySong:Bool = false;
    var IsThisAnError:Bool = false;
 
    override function create() {
@@ -50,6 +52,11 @@ class AchivementsEditorState extends MusicBeatState
 		tipText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER);
 		tipText.scrollFactor.set();
 		add(tipText);
-                FlxG.mouse.visible = false;
+                FlxG.mouse.visible = true;
+
+		#if desktop
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("Achivement Maker woooooooo!!");
+		#end
    }
 }
