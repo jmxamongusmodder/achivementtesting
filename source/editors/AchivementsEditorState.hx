@@ -51,20 +51,6 @@ class AchivementsEditorState extends MusicBeatState
    var UI_box:FlxUITabMenu;
    var UI_awardsbox:FlxUITabMenu;
 
-   private var camEditor:FlxCamera;
-   private var camHUD:FlxCamera;
-   private var camMenu:FlxCamera;
-
-   camEditor = new FlxCamera();
-   camHUD = new FlxCamera();
-   camHUD.bgColor.alpha = 0;
-   camMenu = new FlxCamera();
-   camMenu.bgColor.alpha = 0;
-   FlxG.cameras.reset(camEditor);
-   FlxG.cameras.add(camHUD);
-   FlxG.cameras.add(camMenu);
-   FlxCamera.defaultCameras = [camEditor];
-
    bgLayer = new FlxTypedGroup<FlxSprite>();
    add(bgLayer);
    achLayer = new FlxTypedGroup<Character>();
@@ -76,7 +62,6 @@ class AchivementsEditorState extends MusicBeatState
 		];
 
 		UI_box = new FlxUITabMenu(null, tabs, true);
-		UI_box.cameras = [camMenu];
 
 		UI_box.resize(250, 120);
 		UI_box.x = FlxG.width - 275;
