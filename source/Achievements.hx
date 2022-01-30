@@ -14,6 +14,7 @@ import sys.io.File;
 import haxe.Json;
 import lime.utils.Assets;
 import openfl.utils.Assets as OpenFlAssets;
+import editors.AchivementsEditorState;
 
 using StringTools;
 
@@ -83,7 +84,7 @@ class Achievements {
 		achievementsStuff = achievementShits;
 
 		#if MODS_ALLOWED
-		//reloadAchievements(); //custom achievements do not work. will add once it doesn't do the duplication bug -bb
+		reloadAchievements(); //custom achievements do not work. will add once it doesn't do the duplication bug -bb
 		#end
 
 		if(FlxG.save.data != null) {
@@ -236,8 +237,9 @@ class AttachedAchievement extends FlxSprite {
 			var isModIcon:Bool = false;
 
 			if (Achievements.loadedAchievements.exists(tag)) {
-				isModIcon = true;
-				imagePath = Paths.image(Achievements.loadedAchievements.get(tag).icon);
+				isModIcon = false;
+			        var name:String = 'customawardimgs/';
+				imagePath = Paths.image(name + 'fullcombo');
 			}
 
 			var index:Int = Achievements.getAchievementIndex(tag);
