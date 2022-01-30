@@ -23,7 +23,6 @@ import flixel.addons.ui.FlxUIInputText;
 import flixel.addons.ui.FlxUINumericStepper;
 import flixel.addons.ui.FlxUITabMenu;
 import flixel.addons.ui.FlxUITooltip.FlxUITooltipStyle;
-import flixel.ui.FlxButton;
 import flixel.ui.FlxSpriteButton;
 import openfl.net.FileReference;
 import openfl.events.Event;
@@ -32,6 +31,8 @@ import haxe.Json;
 import flixel.system.debug.interaction.tools.Pointer.GraphicCursorCross;
 import lime.system.Clipboard;
 import flixel.animation.FlxAnimation;
+import flixel.FlxBasic;
+import flixel.ui.FlxButton;
 #if MODS_ALLOWED
 import sys.FileSystem;
 #end
