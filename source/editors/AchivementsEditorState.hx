@@ -53,10 +53,5 @@ class AchivementsEditorState extends MusicBeatState
 		tipText.scrollFactor.set();
 		add(tipText);
                 FlxG.mouse.visible = true;
-
-		#if desktop
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Achivement Maker woooooooo!!");
-		#end
    }
 }
