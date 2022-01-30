@@ -238,8 +238,8 @@ class AttachedAchievement extends FlxSprite {
 
 			if (Achievements.loadedAchievements.exists(tag)) {
 				isModIcon = false;
-			        var name:String = 'customawardimgs/';
-				imagePath = Paths.image(name + 'fullcombo');
+//			        var name:String = 'customawardimgs/';
+				imagePath = Paths.image('customawardimgs/fullcombo');
 			}
 
 			var index:Int = Achievements.getAchievementIndex(tag);
