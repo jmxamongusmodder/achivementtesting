@@ -53,10 +53,12 @@ class AchivementsEditorState extends MusicBeatState
    var IsThisAnError:Bool = false;
    var needaReset = false;
 /* public var alphabet:Alphabet;
-   public var description:Alphabet;
-   public var image:AttachedSprite;*/
+   public var description:Alphabet;*/
+   public var image:AttachedSprite;
+   var imageInputText:FlxUIInputText;
 
    var buttonsArray:Array<FlxButton> = [];
+// var awardFile:WeekFile = null;
 
 // var buttonToggle:FlxButton;
 
@@ -69,6 +71,13 @@ class AchivementsEditorState extends MusicBeatState
 			_file.save(data, "testachivement" + ".json");
 		}
 	}
+	function addUI() {
+		var reloadImage:FlxButton = new FlxButton(imageInputText.x + 210, imageInputText.y - 3, "Reload Image", function()
+		{
+		        imageInputText = new FlxUIInputText(15, 30, 200, 'customawardimgs/fullcombo', 8);
+//			imageFile = imageInputText.text;
+		});
+         }
 
    override function create() {
 		var tipText:FlxText = new FlxText(0, 540, FlxG.width,
@@ -79,6 +88,6 @@ class AchivementsEditorState extends MusicBeatState
 		tipText.screenCenter();
 		add(tipText);
                 FlxG.mouse.visible = true;
-                saveAward();
+                addUI();
  }
 }
